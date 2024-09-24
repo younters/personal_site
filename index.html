@@ -56,6 +56,17 @@
     .tree-view a:hover {
       text-decoration: underline;
     }
+    .project-content {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .project-image {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      margin-right: 20px;
+    }
   </style>
 </head>
 <body>
@@ -71,9 +82,10 @@
           <li>
             <span>Projects</span>
             <ul>
+              <li><a href="#beveragebot">BeverageBot</a></li>
               <li><a href="#stow-step">Stow Step</a></li>
-              <li><a href="#purdue-electric-racing">Purdue Electric Racing</a></li>
-              <li><a href="#personal-projects">Programming Projects</a></li>
+              <li><a href="#stealthtigers-robot">Stealthtigers Robot</a></li>
+              <li><a href="#alfa-romeo-gtv6">Alfa Romeo GTV6 Restoration</a></li>
             </ul>
           </li>
           <li><a href="#experience">Work Experience</a></li>
@@ -88,38 +100,94 @@
         <section id="introduction">
           <h1>Introduction</h1>
           <p>
-            William Yount is a mechanical engineer with 3+ years of experience in thermal engineering. Seeking to leverage my expertise in mechanical design, automation, and system integration to contribute to innovative projects.
+            Mechanical engineer with over 3 years of experience in automation engineering, mechanical design, and system integration. Passionate about building innovative solutions and contributing to projects that push technological boundaries.
           </p>
+          <h2>Areas of Expertise:</h2>
+          <ul>
+            <li>Mechanical Component Design</li>
+            <li>Automation and Controls</li>
+            <li>Rapid Prototyping</li>
+            <li>System Integration</li>
+            <li>Motion Control Systems</li>
+            <li>Python Scripting</li>
+          </ul>
         </section>
 
         <!-- Projects Section -->
+        <section id="beveragebot">
+          <h2>BeverageBot</h2>
+          <div class="project-content">
+            <img src="/images/projects/beveragebot.jpg" alt="BeverageBot Prototype" class="project-image">
+            <div>
+              <p><strong>Overview:</strong> BeverageBot is a senior capstone project involving the design and creation of an automated beverage dispensing robot.</p>
+              <h3>Key Features:</h3>
+              <ul>
+                <li>Developed using Python for control logic and user interface.</li>
+                <li>Integrated microcontrollers (L298 motor drivers) for precise motor control.</li>
+                <li>Implemented custom PCB design for component integration.</li>
+                <li>Created a user-friendly interface for beverage selection and dispensing.</li>
+                <li>Collaborated with a team to design mechanical components and electronic systems.</li>
+              </ul>
+              <p><strong>GitHub Repository:</strong> <a href="https://github.com/yourusername/beveragebot">View on GitHub</a></p>
+            </div>
+          </div>
+        </section>
+
         <section id="stow-step">
-          <h2>Stow Step (2019)</h2>
-          <p>
-            Developed a folding step that attaches to Purdue’s bed supplier’s railing system for a sophomore mechanical design course team project. The design is currently being patented through the Purdue Research Foundation.
-          </p>
+          <h2>Stow Step</h2>
+          <div class="project-content">
+            <img src="/images/projects/stow-step.jpg" alt="Stow Step Prototype" class="project-image">
+            <div>
+              <p><strong>Overview:</strong> Stow Step is a folding step that attaches to Purdue's bed supplier's railing system, designed during my sophomore mechanical design course.</p>
+              <h3>Key Achievements:</h3>
+              <ul>
+                <li>Innovated a space-saving solution for easy bed access.</li>
+                <li>Collaborated with a team to design and prototype the mechanism.</li>
+                <li>Secured a patent through the Purdue Research Foundation.</li>
+                <li>Utilized SolidWorks for 3D modeling and simulation.</li>
+                <li>Conducted user testing and iterated design based on feedback.</li>
+              </ul>
+              <p><strong>Patent Information:</strong> <a href="#">Patent Details</a></p>
+            </div>
+          </div>
         </section>
 
-        <section id="purdue-electric-racing">
-          <h2>Purdue Electric Racing (2017 - Ongoing)</h2>
-          <p>
-            Active member of the chassis development sub-team on the Purdue Electric Racing team, which builds and races electric racecars to compete in Formula SAE Electric. Utilized SolidWorks for CAD development.
-          </p>
+        <section id="stealthtigers-robot">
+          <h2>Stealthtigers Robot</h2>
+          <div class="project-content">
+            <img src="/images/projects/stealthtigers-robot.jpg" alt="Stealthtigers Robot" class="project-image">
+            <div>
+              <p><strong>Overview:</strong> Participated in the FIRST Robotics Competition (FRC) with Team Stealthtigers during high school.</p>
+              <h3>Contributions:</h3>
+              <ul>
+                <li>Developed vision processing systems using OpenCV and Microsoft Kinect.</li>
+                <li>Programmed autonomous robot functionalities in Java and Python.</li>
+                <li>Designed and implemented object recognition algorithms for target acquisition.</li>
+                <li>Collaborated with a multidisciplinary team to integrate software and hardware components.</li>
+                <li>Presented at regional competitions and received recognition for innovation.</li>
+              </ul>
+              <p><strong>GitHub Repository:</strong> <a href="https://github.com/yourusername/stealthtigers-robot">View on GitHub</a></p>
+            </div>
+          </div>
         </section>
 
-        <section id="personal-projects">
-          <h2>Personal Programming Projects</h2>
-          <ul>
-            <li>
-              Developed an adapter to allow a USB keyboard to function as a Bluetooth keyboard using Python.
-            </li>
-            <li>
-              Created multiple websites with SQL databases and login functionality using PHP and MySQL.
-            </li>
-            <li>
-              Worked on target recognition using cameras and Microsoft Kinect with Python, Java, and OpenCV.
-            </li>
-          </ul>
+        <section id="alfa-romeo-gtv6">
+          <h2>1981 Alfa Romeo GTV6 Restoration</h2>
+          <div class="project-content">
+            <img src="/images/projects/alfa-romeo-gtv6.jpg" alt="Alfa Romeo GTV6" class="project-image">
+            <div>
+              <p><strong>Overview:</strong> Personal project focused on restoring a classic 1981 Alfa Romeo GTV6.</p>
+              <h3>Project Highlights:</h3>
+              <ul>
+                <li>Undertaking full mechanical restoration, including engine rebuild and transmission repair.</li>
+                <li>Restoring electrical systems and retrofitting modern components where appropriate.</li>
+                <li>Performing bodywork restoration, including rust repair and repainting.</li>
+                <li>Documenting the restoration process through photography and video.</li>
+                <li>Learning and applying automotive engineering principles hands-on.</li>
+              </ul>
+              <p><strong>Project Blog:</strong> <a href="#">Read More</a></p>
+            </div>
+          </div>
         </section>
 
         <!-- Work Experience Section -->
