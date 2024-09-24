@@ -19,4 +19,4 @@ Stow Step is a folding step that attaches to Purdue’s bed supplier’s railing
 
 **Patent Information:**
 
-[Patent Details](#) <!-- Replace with actual link if available -->
+[Patent Details](#HERE) <!-- Replace with actual link if available -->
