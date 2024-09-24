@@ -1,0 +1,15 @@
+<ul>
+    <li><a href="{{ "/" | relLangURL }}#introduction">Introduction</a></li>
+    <li>
+      <span>Projects</span>
+      <ul>
+        {{ range where .Site.RegularPages "Section" "projects" }}
+          <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+        {{ end }}
+      </ul>
+    </li>
+    <li><a href="{{ "/work-experience" | relLangURL }}">Work Experience</a></li>
+    <li><a href="{{ "/education" | relLangURL }}">Education</a></li>
+    <li><a href="{{ "/contact" | relLangURL }}">Contact</a></li>
+  </ul>
+  
