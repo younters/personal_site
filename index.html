@@ -144,27 +144,15 @@
             box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        .modal-header {
-            background: linear-gradient(to bottom, #0A246A, #A6CAF0);
-            padding: 3px 5px;
-            color: white;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .close {
-            color: white;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
+        .modal .window-body {
+            padding: 10px;
+            height: 400px;
+            overflow: hidden;
         }
 
         .swiper-container {
             width: 100%;
-            height: 400px;
-            background-color: #fff;
+            height: 100%;
         }
 
         .swiper-slide img {
@@ -174,14 +162,7 @@
         }
 
         .swiper-button-next, .swiper-button-prev {
-            background-color: rgba(236, 233, 216, 0.7);
             color: #0A246A;
-            padding: 30px 20px;
-            transition: background-color 0.3s;
-        }
-
-        .swiper-button-next:hover, .swiper-button-prev:hover {
-            background-color: rgba(236, 233, 216, 0.9);
         }
 
         .swiper-pagination-bullet-active {
@@ -389,22 +370,26 @@
 
     <!-- Updated modal structure -->
     <div id="imageModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
+        <div class="modal-content window">
+            <div class="title-bar">
                 <div class="title-bar-text">BeverageBot Images</div>
-                <span class="close">&times;</span>
-            </div>
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="/photos/beveragebot/01.jpg" alt="BeverageBot 1"></div>
-                    <div class="swiper-slide"><img src="/photos/beveragebot/02.jpg" alt="BeverageBot 2"></div>
-                    <div class="swiper-slide"><img src="/photos/beveragebot/03.jpg" alt="BeverageBot 3"></div>
-                    <div class="swiper-slide"><img src="/photos/beveragebot/04.jpg" alt="BeverageBot 4"></div>
-                    <div class="swiper-slide"><img src="/photos/beveragebot/05.jpg" alt="BeverageBot 5"></div>
+                <div class="title-bar-controls">
+                    <button aria-label="Close" class="close"></button>
                 </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+            </div>
+            <div class="window-body">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="/photos/beveragebot/01.jpg" alt="BeverageBot 1"></div>
+                        <div class="swiper-slide"><img src="/photos/beveragebot/02.jpg" alt="BeverageBot 2"></div>
+                        <div class="swiper-slide"><img src="/photos/beveragebot/03.jpg" alt="BeverageBot 3"></div>
+                        <div class="swiper-slide"><img src="/photos/beveragebot/04.jpg" alt="BeverageBot 4"></div>
+                        <div class="swiper-slide"><img src="/photos/beveragebot/05.jpg" alt="BeverageBot 5"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -431,11 +416,11 @@
             modal.style.display = "block";
         }
 
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
+        // Get the <button> element that closes the modal
+        var closeBtn = modal.querySelector(".close");
 
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
+        // When the user clicks on the close button, close the modal
+        closeBtn.onclick = function() {
             modal.style.display = "none";
         }
 
