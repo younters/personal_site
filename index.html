@@ -1,232 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>William Yount - Portfolio</title>
-  <link rel="stylesheet" href="xp.css">
-  <style>
-    body {
-      background-image: url('photo.jpg');
-      background-size: cover; /* Change to contain */
-      background-position: center;
-      background-repeat: no-repeat; /* Prevents tiling */
-      background-attachment: fixed;
-      height: 100vh;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .window {
-      width: 80%;
-      max-width: 1000px;
-      height: 80vh;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-    }
-    .window-body {
-      display: flex;
-      flex: 1;
-      overflow: hidden;
-    }
-    .tree-view-container {
-      width: 25%;
-      border-right: 1px solid #000;
-      padding: 10px;
-      overflow-y: auto;
-    }
-    .tree-view {
-      width: 90%;
-      height: 50%;
-    }
-    .content {
-      width: 75%;
-      padding: 10px;
-      overflow-y: auto;
-      max-height: 100%;
-    }
-    .tree-view ul {
-      list-style: none;
-      padding-left: 10px;
-    }
-    .tree-view li {
-      margin: 5px 0;
-    }
-    .tree-view a {
-      text-decoration: none;
-      color: #000;
-    }
-    .tree-view a:hover {
-      text-decoration: underline;
-    }
-    .project-content {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 20px;
-    }
-    .project-image {
-      width: 150px;
-      height: 112px;
-      object-fit: cover;
-      margin-right: 20px;
-    }
-    /* Updated header styles */
-    h1 {
-      font-size: 24px;
-      margin-bottom: 15px;
-    }
+    <meta charset="UTF-8">
+    <title>William Yount - Portfolio</title>
+    <link rel="stylesheet" href="xp.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <style>
+        body {
+            background-image: url('photo.jpg');
+            background-size: cover;
+            /* Change to contain */
+            background-position: center;
+            background-repeat: no-repeat;
+            /* Prevents tiling */
+            background-attachment: fixed;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    h2 {
-      font-size: 20px;
-      margin-top: 20px;
-      margin-bottom: 10px;
-    }
+        .window {
+            width: 80%;
+            max-width: 1000px;
+            height: 80vh;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
 
-    h3 {
-      font-size: 16px;
-      margin-top: 15px;
-      margin-bottom: 8px;
-    }
+        .window-body {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
 
-    /* Adjust content spacing */
-    .content section {
-      margin-bottom: 30px;
-    }
+        .tree-view-container {
+            width: 25%;
+            border-right: 1px solid #000;
+            padding: 10px;
+            overflow-y: auto;
+        }
 
-    /* Adjust list spacing */
-    ul {
-      padding-left: 20px;
-      margin-top: 5px;
-      margin-bottom: 10px;
-    }
+        .tree-view {
+            width: 90%;
+            height: 50%;
+        }
 
-    li {
-      margin-bottom: 5px;
-    }
-  </style>
+        .content {
+            width: 75%;
+            padding: 10px;
+            overflow-y: auto;
+            max-height: 100%;
+        }
+
+        .tree-view ul {
+            list-style: none;
+            padding-left: 10px;
+        }
+
+        .tree-view li {
+            margin: 5px 0;
+        }
+
+        .tree-view a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .tree-view a:hover {
+            text-decoration: underline;
+        }
+
+        .project-content {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .project-image {
+            width: 150px;
+            height: 112px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        /* Updated header styles */
+        h1 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 16px;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        /* Adjust content spacing */
+        .content section {
+            margin-bottom: 30px;
+        }
+
+        /* Adjust list spacing */
+        ul {
+            padding-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: #ECE9D8;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #0A246A;
+            width: 60%;
+            max-width: 600px;
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .close {
+            color: #0A246A;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 300px;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: #0A246A;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: #0A246A;
+        }
+    </style>
 </head>
+
 <body>
-  <div class="window">
-    <div class="title-bar">
-      <div class="title-bar-text">Portfolio - William Yount</div>
-    </div>
-    <div class="window-body">
-      <!-- Tree View Navigation -->
-      <nav class="tree-view-container">
-        <ul class="tree-view">
-          <li><a href="#introduction">Introduction</a></li>
-          <li>
-            <span>Projects</span>
-            <ul>
-              <li><a href="#beveragebot">BeverageBot</a></li>
-              <li><a href="#stow-step">Stow Step</a></li>
-              <li><a href="#stealthtigers-robot">Stealthtigers Robot</a></li>
-              <li><a href="#alfa-romeo-gtv6">Alfa Romeo GTV6 Restoration</a></li>
-            </ul>
-          </li>
-          <!--<li><a href="#experience">Work Experience</a></li>-->
-          <li><a href="#education">Education</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+    <div class="window">
+        <div class="title-bar">
+            <div class="title-bar-text">Portfolio - William Yount</div>
+        </div>
+        <div class="window-body">
+            <!-- Tree View Navigation -->
+            <nav class="tree-view-container">
+                <ul class="tree-view">
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li>
+                        <span>Projects</span>
+                        <ul>
+                            <li><a href="#beveragebot">BeverageBot</a></li>
+                            <li><a href="#stow-step">Stow Step</a></li>
+                            <li><a href="#stealthtigers-robot">Stealthtigers Robot</a></li>
+                            <li><a href="#alfa-romeo-gtv6">Alfa Romeo GTV6 Restoration</a></li>
+                        </ul>
+                    </li>
+                    <!--<li><a href="#experience">Work Experience</a></li>-->
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
 
-      <!-- Main Content Area -->
-      <div class="content">
-        <!-- Introduction Section -->
-        <section id="introduction">
-          <h1>Introduction</h1>
-          <p>
-            Mechanical engineer with over 3 years of experience in automation engineering, mechanical design, and system integration. Passionate about building innovative solutions and contributing to projects that push technological boundaries.
-          </p>
-          <h2>Areas of Expertise:</h2>
-          <ul>
-            <li>Mechanical Component Design</li>
-            <li>Automation and Controls</li>
-            <li>Rapid Prototyping</li>
-            <li>System Integration</li>
-            <li>Motion Control Systems</li>
-            <li>Python Scripting</li>
-          </ul>
-        </section>
+            <!-- Main Content Area -->
+            <div class="content">
+                <!-- Introduction Section -->
+                <section id="introduction">
+                    <h1>Introduction</h1>
+                    <p>
+                        Mechanical engineer with over 3 years of experience in automation engineering, mechanical
+                        design, and system integration. Passionate about building innovative solutions and contributing
+                        to projects that push technological boundaries.
+                    </p>
+                    <h2>Areas of Expertise:</h2>
+                    <ul>
+                        <li>Mechanical Component Design</li>
+                        <li>Automation and Controls</li>
+                        <li>Rapid Prototyping</li>
+                        <li>System Integration</li>
+                        <li>Motion Control Systems</li>
+                        <li>Python Scripting</li>
+                    </ul>
+                </section>
 
-        <!-- Projects Section -->
-        <section id="beveragebot">
-          <h2>BeverageBot</h2>
-          <div class="project-content">
-            <img src="/images/projects/beveragebot.jpg" alt="BeverageBot Prototype" class="project-image">
-            <div>
-              <p><strong>Overview:</strong> BeverageBot is a senior capstone project involving the design and creation of an automated beverage dispensing robot.</p>
-              <h3>Key Features:</h3>
-              <ul>
-                <li>Developed using Python for control logic and user interface.</li>
-                <li>Integrated microcontrollers (L298 motor drivers) for precise motor control.</li>
-                <li>Implemented custom PCB design for component integration.</li>
-                <li>Created a user-friendly interface for beverage selection and dispensing.</li>
-                <li>Collaborated with a team to design mechanical components and electronic systems.</li>
-              </ul>
-              <p><strong>GitHub Repository:</strong> <a href="https://github.com/yourusername/beveragebot">View on GitHub</a></p>
-            </div>
-          </div>
-        </section>
+                <!-- Projects Section -->
+                <section id="beveragebot">
+                    <h2>BeverageBot</h2>
+                    <div class="project-content">
+                        <img src="/photos/beveragebot/01.jpg" alt="BeverageBot Prototype" class="project-image" style="cursor: pointer;">
+                        <div>
+                            <p><strong>Overview:</strong> BeverageBot is a senior capstone project involving the design
+                                and creation of an automated beverage dispensing robot.</p>
+                            <h3>Key Features:</h3>
+                            <ul>
+                                <li>Developed using Python for control logic and user interface.</li>
+                                <li>Integrated microcontrollers (L298 motor drivers) for precise motor control.</li>
+                                <li>Implemented entire electronics and software design for team.</li>
+                                <li>Created a user-friendly interface for beverage selection and dispensing.</li>
+                                <li>Collaborated with a team to design mechanical components and electronic systems.
+                                </li>
+                            </ul>
+                            <p><strong>GitHub Repository:</strong> <a
+                                    href="https://github.com/yourusername/beveragebot">View on GitHub</a></p>
+                        </div>
+                    </div>
+                </section>
 
-        <section id="stow-step">
-          <h2>Stow Step</h2>
-          <div class="project-content">
-            <img src="/photos/stowstep.png" alt="Stow Step Prototype" class="project-image">
-            <div>
-              <p><strong>Overview:</strong> Stow Step is a folding step that attaches to Purdue's bed supplier's railing system, designed during my sophomore mechanical design course.</p>
-              <h3>Key Achievements:</h3>
-              <ul>
-                <li>Innovated a space-saving solution for easy bed access.</li>
-                <li>Collaborated with a team to design and prototype the mechanism.</li>
-                <li>Utilized Autodesk Fusion for 3D modeling and FEA simulation.</li>
-                <li>Conducted user testing and iterated design based on feedback.</li>
-                <li>Secured a patent through the Purdue Research Foundation.</li>
-              </ul>
-              <p><strong>Patent Information:</strong> <a href="https://patentimages.storage.googleapis.com/9f/90/df/71b0d1ab9ab798/US12078014.pdf">Patent US12078014</a></p>
-            </div>
-          </div>
-        </section>
+                <section id="stow-step">
+                    <h2>Stow Step</h2>
+                    <div class="project-content">
+                        <img src="/photos/stowstep.png" alt="Stow Step Prototype" class="project-image">
+                        <div>
+                            <p><strong>Overview:</strong> Stow Step is a folding step that attaches to Purdue's bed
+                                supplier's railing system, designed during my sophomore mechanical design course.</p>
+                            <h3>Key Achievements:</h3>
+                            <ul>
+                                <li>Innovated a space-saving solution for easy dorm room bed loft access.</li>
+                                <li>Collaborated with a Sophomore design team to rapidly design and prototype the mechanism.</li>
+                                <li>Utilized Autodesk Fusion for 3D modeling and FEA simulation.</li>
+                                <li>Conducted user testing and iterated design based on feedback.</li>
+                                <li>Secured a patent through the Purdue Research Foundation.</li>
+                            </ul>
+                            <p><strong>Patent Information:</strong> <a
+                                    href="https://patentimages.storage.googleapis.com/9f/90/df/71b0d1ab9ab798/US12078014.pdf">Patent
+                                    US12078014</a></p>
+                        </div>
+                    </div>
+                </section>
 
-        <section id="stealthtigers-robot">
-          <h2>Stealthtigers Robot</h2>
-          <div class="project-content">
-            <img src="/images/projects/stealthtigers-robot.jpg" alt="Stealthtigers Robot" class="project-image">
-            <div>
-              <p><strong>Overview:</strong> Participated in the FIRST Robotics Competition (FRC) with Team Stealthtigers during high school.</p>
-              <h3>Contributions:</h3>
-              <ul>
-                <li>Developed vision processing systems using OpenCV and Modified FFMPeg to Process Microsoft Kinect Depth Images.</li>
-                <li>Programmed autonomous robot functionalities in Java and Python.</li>
-                <li>Designed and implemented object recognition algorithms for target acquisition.</li>
-                <li>Collaborated with a multidisciplinary team to integrate software and hardware components.</li>
-                <li>Developed gyroscope oriented mechanum wheel control scheme </li>
-              </ul>
-              <p><strong>GitHub Repository:</strong> <a href="https://github.com/yourusername/stealthtigers-robot">View on GitHub</a></p>
-            </div>
-          </div>
-        </section>
+                <section id="stealthtigers-robot">
+                    <h2>Stealthtigers Robot</h2>
+                    <div class="project-content">
+                        <img src="/photos/robot.jpg" alt="Stealthtigers Robot" class="project-image">
+                        <div>
+                            <p><strong>Overview:</strong> Participated in the FIRST Robotics Competition (FRC) with Team
+                                Stealthtigers 3164 during high school.</p>
+                            <h3>Contributions:</h3>
+                            <ul>
+                                <li>Programmed autonomous robot functionalities in Java, Python, and C.</li>
+                                <li>Designed and implemented object recognition algorithms for autonomous target
+                                    acquisition.</li>
+                                <li>Developed vision processing systems using OpenCV and Modified FFMPeg to Process
+                                    Microsoft Kinect Depth Images.</li>
+                                <li>Served as chief electronics and software designer in multidisciplinary team.</li>
+                                <li>Developed gyroscope-based ground truth orienting mechanum wheel control scheme.</li>
+                            </ul>
+                            <p><strong>GitHub Repository:</strong> <a
+                                    href="https://github.com/stealthtigers3164/2017_FRC3164_Steamworks">View on
+                                    GitHub</a></p>
+                        </div>
+                    </div>
+                </section>
 
-        <section id="alfa-romeo-gtv6">
-          <h2>1981 Alfa Romeo GTV6 Restoration</h2>
-          <div class="project-content">
-            <img src="/photos/alfa-gtv6.jpeg" alt="Alfa Romeo GTV6" class="project-image">
-            <div>
-              <p><strong>Overview:</strong> Personal project focused on restoring a classic 1981 Alfa Romeo GTV6.</p>
-              <h3>Project Highlights:</h3>
-              <ul>
-                <li>Undertaking full mechanical restoration, including engine rebuild and eventually transmission repair.</li>
-                <li>Planned electronic system overhaul.</li>
-                <li>Performing bodywork restoration, including rust repair and repainting.</li>
-                <li>Learning and applying automotive engineering principles hands-on.</li>
-              </ul>
-            </div>
-          </div>
-        </section>
+                <section id="alfa-romeo-gtv6">
+                    <h2>1981 Alfa Romeo GTV6 Restoration</h2>
+                    <div class="project-content">
+                        <img src="/photos/alfa-gtv6.jpeg" alt="Alfa Romeo GTV6" class="project-image">
+                        <div>
+                            <p><strong>Overview:</strong> Personal project focused on restoring a classic 1981 Alfa
+                                Romeo GTV6.</p>
+                            <h3>Project Highlights:</h3>
+                            <ul>
+                                <li>Undertaking full mechanical restoration, including engine rebuild and eventually
+                                    transmission repair.</li>
+                                <li>Planned electronic system overhaul.</li>
+                                <li>Performing bodywork restoration, including rust repair and repainting.</li>
+                                <li>Learning and applying automotive engineering principles hands-on.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
 
-        <!-- Work Experience Section -->
-        <!--
+                <!-- Work Experience Section -->
+                <!--
         <section id="experience">
           <h1>Work Experience</h1>
 
@@ -263,27 +345,86 @@
           </ul>
         </section>
         -->
-        <!-- Education Section -->
-        <section id="education">
-          <h1>Education</h1>
-          <h2>Purdue University – Honors College (West Lafayette, Graduated 2021)</h2>
-          <p>
-            Bachelor of Science in Mechanical Engineering with a minor in Management.
-          </p>
-          <p>
-            <strong>Related Coursework:</strong> Thermodynamics, Mechanics, Programming Applications for Engineers, 2D Design and 3D CAD, Statics and Dynamics, Linear Circuit Analysis, Fluid Mechanics, Control Systems, Mechanics of Materials, Mechanical Design.
-          </p>
-        </section>
+                <!-- Education Section -->
+                <section id="education">
+                    <h1>Education</h1>
+                    <h2>Purdue University – Honors College (West Lafayette, Graduated 2021)</h2>
+                    <p>
+                        Bachelor of Science in Mechanical Engineering with a minor in Management.
+                    </p>
+                    <p>
+                        <strong>Related Coursework:</strong> Thermodynamics, Mechanics, Programming Applications for
+                        Engineers, 2D Design and 3D CAD, Statics and Dynamics, Linear Circuit Analysis, Fluid Mechanics,
+                        Control Systems, Mechanics of Materials, Mechanical Design.
+                    </p>
+                </section>
 
-        <!-- Contact Section -->
-        <section id="contact">
-          <h1>Contact</h1>
-          <p><strong>Email:</strong> <a href="mailto:will@yount.gg">will@yount.gg</a></p>
-          <p><strong>Phone:</strong> (813) 777-1984</p>
-          <p><strong>Address:</strong> 1433 Essex Way, San Jose, CA 95117</p>
-        </section>
-      </div>
+                <!-- Contact Section -->
+                <section id="contact">
+                    <h1>Contact</h1>
+                    <p><strong>Email:</strong> <a href="mailto:will@yount.gg">will@yount.gg</a></p>
+                    <p><strong>Phone:</strong> (813) 777-1984</p>
+                    <p><strong>Address:</strong> 1433 Essex Way, San Jose, CA 95117</p>
+                </section>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <!-- Add this modal structure at the end of the body -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="/photos/beveragebot/01.jpg" alt="BeverageBot 1"></div>
+                    <div class="swiper-slide"><img src="/photos/beveragebot/02.jpg" alt="BeverageBot 2"></div>
+                    <div class="swiper-slide"><img src="/photos/beveragebot/03.jpg" alt="BeverageBot 3"></div>
+                    <div class="swiper-slide"><img src="/photos/beveragebot/04.jpg" alt="BeverageBot 4"></div>
+                    <div class="swiper-slide"><img src="/photos/beveragebot/05.jpg" alt="BeverageBot 5"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Swiper
+        var swiper = new Swiper('.swiper-container', {
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+
+        // Get the modal
+        var modal = document.getElementById("imageModal");
+
+        // Get the image and insert it inside the modal
+        var img = document.querySelector("#beveragebot .project-image");
+        img.onclick = function(){
+            modal.style.display = "block";
+        }
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
+
 </html>
