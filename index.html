@@ -131,7 +131,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
         .modal-content {
@@ -157,6 +157,10 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
+        }
+
+        .title-bar-controls .close {
+            cursor: pointer;
         }
     </style>
 </head>
@@ -192,7 +196,8 @@
                 <section id="introduction">
                     <h1>Introduction</h1>
                     <p>
-                        Mechanical engineer with over 3 years of industry experience in automation engineering, thermal and mechanical
+                        Mechanical engineer with over 3 years of industry experience in automation engineering, thermal
+                        and mechanical
                         design, and system integration. Passionate about building innovative solutions and contributing
                         to projects that push technological boundaries.
                     </p>
@@ -212,7 +217,8 @@
                 <section id="beveragebot">
                     <h2>BeverageBot</h2>
                     <div class="project-content">
-                        <img src="/photos/beveragebot/01.jpg" alt="BeverageBot Prototype" class="project-image" style="cursor: pointer;">
+                        <img src="/photos/beveragebot/01.jpg" alt="BeverageBot Prototype" class="project-image"
+                            style="cursor: pointer;">
                         <div>
                             <p><strong>Overview:</strong> BeverageBot is a senior capstone project involving the design
                                 and creation of an automated beverage dispensing robot.</p>
@@ -241,7 +247,8 @@
                             <h3>Key Achievements:</h3>
                             <ul>
                                 <li>Innovated a space-saving solution for easy dorm room bed loft access.</li>
-                                <li>Collaborated with a Sophomore design team to rapidly design and prototype the mechanism.</li>
+                                <li>Collaborated with a Sophomore design team to rapidly design and prototype the
+                                    mechanism.</li>
                                 <li>Utilized Autodesk Fusion for 3D modeling and FEA simulation.</li>
                                 <li>Conducted user testing and iterated design based on feedback.</li>
                                 <li>Secured a patent through the Purdue Research Foundation.</li>
@@ -403,7 +410,7 @@
 
         // Get the image and insert it inside the modal
         var img = document.querySelector("#beveragebot .project-image");
-        img.onclick = function(){
+        img.onclick = function () {
             modal.style.display = "block";
         }
 
@@ -411,12 +418,12 @@
         var closeBtn = modal.querySelector(".close");
 
         // When the user clicks on the close button, close the modal
-        closeBtn.onclick = function() {
+        closeBtn.onclick = function () {
             modal.style.display = "none";
         }
 
         // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
