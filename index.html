@@ -16,7 +16,7 @@
             background-repeat: no-repeat;
             /* Prevents tiling */
             background-attachment: fixed;
-            height: 100%;
+            height: 100vh;
             margin: 0;
             display: flex;
             justify-content: center;
@@ -26,10 +26,19 @@
         .window {
             width: 80%;
             max-width: 1000px;
-            height: 80%;
+            height: 80vh;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
+        }
+        
+        @media (max-width: 767px) {
+            .window {
+                width: 95%;
+                height: auto;
+                min-height: 80vh;
+                max-height: none;
+            }
         }
 
         .window-body {
