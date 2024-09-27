@@ -221,6 +221,7 @@
                     </ul>
                 </section>
 
+                <!-- Work Experience Section -->
                 <section id="experience">
                     <h1>Work Experience</h1>
           
@@ -320,7 +321,7 @@
                                     Microsoft Kinect Depth Images.</li>
                                 <li>Served as chief electronics and software designer in multidisciplinary team.</li>
                                 <li>Developed gyroscope-based ground truth orienting mechanum wheel control scheme.</li>
-                                <li>Competed in the U.S. Special Operations Command’s Tactical Assault Light Operator Suit (TALOS) project. Designed the legs of an exoskeleton suit for soldiers. Presented work at security conferences around Florida</li>
+                                <li>Competed in the U.S. Special Operations Command's Tactical Assault Light Operator Suit (TALOS) project. Designed the legs of an exoskeleton suit for soldiers. Presented work at security conferences around Florida</li>
                             </ul>
                             <p><strong>GitHub Repository:</strong> <a
                                     href="https://github.com/stealthtigers3164/2017_FRC3164_Steamworks">View on
@@ -348,23 +349,6 @@
                     </div>
                 </section>
 
-                <!--<section id="other projects">
-                    <h2>Various Other Projects</h2>
-                    <div class="project-content">
-                        <div>
-                            <h3>Random Stuff:</h3>
-                            <ul>
-                                <li>Satellite to LULC GaN Network</li>
-                                <li></li>
-                                <li>Performing bodywork restoration, including rust repair and repainting.</li>
-                                <li>Learning and applying automotive engineering principles hands-on.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>-->
-
-                <!-- Work Experience Section -->
-                
                 <!-- Education Section -->
                 <section id="education">
                     <h1>Education</h1>
@@ -383,14 +367,13 @@
                 <section id="contact">
                     <h1>Contact</h1>
                     <p><strong>Email:</strong> <a href="mailto:will@yount.gg">will@yount.gg</a></p>
-                    <p><strong>Phone:</strong> (813) 777-1984</p>
-                    <p><strong>Address:</strong> 1433 Essex Way, San Jose, CA 95117</p>
+                    <p><strong>Phone:</strong><span id="phone"></span></p>
                 </section>
             </div>
         </div>
     </div>
 
-    <!-- Updated modal structure -->
+    
     <div id="imageModal" class="modal">
         <div class="modal-content window">
             <div class="title-bar">
@@ -417,7 +400,6 @@
     </div>
 
     <script>
-        // Initialize Swiper
         var swiper = new Swiper('.swiper-container', {
             navigation: {
                 nextEl: '.swiper-button-next',
@@ -429,29 +411,27 @@
             },
         });
 
-        // Get the modal
         var modal = document.getElementById("imageModal");
 
-        // Get the image and insert it inside the modal
         var img = document.querySelector("#beveragebot .project-image");
         img.onclick = function () {
             modal.style.display = "block";
         }
 
-        // Get the <button> element that closes the modal
         var closeBtn = modal.querySelector(".close");
 
-        // When the user clicks on the close button, close the modal
-        closeBtn.onclick = function () {
+        closeBtn.onclick = function () { // close on btn click
             modal.style.display = "none";
         }
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function (event) {
+        /*window.onclick = function (event) { // close if clicked outside
             if (event.target == modal) {
                 modal.style.display = "none";
             }
-        }
+        }*/
+
+        // Obfuscate phone number
+        document.getElementById('phone').innerText = '(813) 777-'+'1984';
     </script>
 </body>
 
